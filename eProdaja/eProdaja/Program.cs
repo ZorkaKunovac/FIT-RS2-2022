@@ -13,6 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IProizvodiService, ProizvodiService>();
 builder.Services.AddTransient<IKorisniciService, KorisniciService>();
+builder.Services.AddTransient<IJediniceMjere, JediniceMjereService>();
 
 builder.Services.AddAutoMapper(typeof(IKorisniciService));
 

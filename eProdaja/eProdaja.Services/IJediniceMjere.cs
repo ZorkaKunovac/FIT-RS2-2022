@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace eProdaja.Services
 {
-    public interface IProizvodiService
+    public interface IJediniceMjere
     {
-       IEnumerable<Proizvodi> Get();
-        Proizvodi GetById(int id);
+        IEnumerable<JediniceMjere> Get();
+        JediniceMjere GetById(int id);
 
     }
 }

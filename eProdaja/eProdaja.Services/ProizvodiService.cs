@@ -1,4 +1,5 @@
-﻿using eProdaja.Services.Database;
+﻿using AutoMapper;
+using eProdaja.Services.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,21 +11,25 @@ namespace eProdaja.Services
     public class ProizvodiService : IProizvodiService
     {
         public eProdajaContext Context { get; set; }
+        public IMapper Mapper { get; set; }
 
-        public ProizvodiService(eProdajaContext context)
+        public ProizvodiService(eProdajaContext context, IMapper mapper)
         {
             Context = context;
+            Mapper = mapper;
         }
-        public List<Proizvodi> ProizvodiList= new List<Proizvodi> { new Proizvodi() { Id = 1, Naziv = "Laptop" }, new Proizvodi() { Id = 2, Naziv = "Mis" } };
-        public IEnumerable<Proizvodi> Get()
+        //public List<Proizvodi> ProizvodiList= new List<Proizvodi> { new Proizvodi() { Id = 1, Naziv = "Laptop" }, new Proizvodi() { Id = 2, Naziv = "Mis" } };
+        public IEnumerable<Model.Proizvodi> Get()
         {
-            return ProizvodiList;
+            var result = Context.Proizvodis.ToList();
+            return Mapper.Map<List<Model.Proizvodi>>(result);
         }
 
-        public Proizvodi GetById(int id)
+        public Model.Proizvodi GetById(int id)
         {
-            return ProizvodiList.FirstOrDefault(x => x.Id == id);
+            var result = Context.Proizvodis.Find(id);
+            return Mapper.Map<Model.Proizvodi>(result);
         }
-         
+
     }
 }
