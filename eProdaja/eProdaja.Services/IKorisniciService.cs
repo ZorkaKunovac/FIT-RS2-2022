@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eProdaja.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace eProdaja.Services
 {
     public interface IKorisniciService
     {
-        IEnumerable<Database.Korisnici> Get();
+        IEnumerable<Korisnici> Get();
         //Korisnici GetById(int id);
     }
 }

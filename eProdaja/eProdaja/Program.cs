@@ -14,6 +14,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IProizvodiService, ProizvodiService>();
 builder.Services.AddTransient<IKorisniciService, KorisniciService>();
 
+builder.Services.AddAutoMapper(typeof(IKorisniciService));
+
 builder.Services.AddDbContext<eProdajaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();

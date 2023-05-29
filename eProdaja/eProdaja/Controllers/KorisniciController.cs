@@ -1,6 +1,6 @@
-﻿using eProdaja.Services;
-using eProdaja.Services.Database;
-using Microsoft.AspNetCore.Mvc;
+﻿using eProdaja.Model;
+using eProdaja.Services;
+ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace eProdaja.Controllers
@@ -17,7 +17,7 @@ namespace eProdaja.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Database.Korisnici> Get()
+        public IEnumerable<Korisnici> Get()
         {
             return _service.Get();
         }
